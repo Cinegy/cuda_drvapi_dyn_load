@@ -1,0 +1,950 @@
+#pragma once
+
+//
+// (!) This code was implemented based on CUDA SDK ver. 11.1.1.456.81
+//
+
+#ifndef _CUDA_DRVAPI_FUNCS_DEFINITION_SECTION_
+#define DECLARE_FUNC_CUDA_DRVAPI(function) extern decltype(function) *p##function;
+#endif
+
+/********************************************************************************************************/
+
+#ifdef _WIN32
+DECLARE_FUNC_CUDA_DRVAPI(cuD3D11GetDevice)
+DECLARE_FUNC_CUDA_DRVAPI(cuD3D11GetDevices)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphicsD3D11RegisterResource)
+DECLARE_FUNC_CUDA_DRVAPI(cuD3D11CtxCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuD3D11CtxCreateOnDevice)
+DECLARE_FUNC_CUDA_DRVAPI(cuD3D11GetDirect3DDevice)
+#endif
+
+DECLARE_FUNC_CUDA_DRVAPI(cuGetErrorString)
+DECLARE_FUNC_CUDA_DRVAPI(cuGetErrorName)
+DECLARE_FUNC_CUDA_DRVAPI(cuInit)
+DECLARE_FUNC_CUDA_DRVAPI(cuDriverGetVersion)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGet)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetCount)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetName)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetUuid)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetLuid)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceTotalMem)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetTexture1DLinearMaxWidth)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetNvSciSyncAttributes)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetProperties)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceComputeCapability)
+DECLARE_FUNC_CUDA_DRVAPI(cuDevicePrimaryCtxRetain)
+DECLARE_FUNC_CUDA_DRVAPI(cuDevicePrimaryCtxRelease)
+DECLARE_FUNC_CUDA_DRVAPI(cuDevicePrimaryCtxSetFlags)
+DECLARE_FUNC_CUDA_DRVAPI(cuDevicePrimaryCtxGetState)
+DECLARE_FUNC_CUDA_DRVAPI(cuDevicePrimaryCtxReset)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxPushCurrent)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxPopCurrent)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxSetCurrent)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxGetCurrent)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxGetDevice)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxGetFlags)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxSynchronize)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxSetLimit)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxGetLimit)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxGetCacheConfig)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxSetCacheConfig)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxGetSharedMemConfig)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxSetSharedMemConfig)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxGetApiVersion)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxGetStreamPriorityRange)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxResetPersistingL2Cache)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxAttach)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxDetach)
+DECLARE_FUNC_CUDA_DRVAPI(cuModuleLoad)
+DECLARE_FUNC_CUDA_DRVAPI(cuModuleLoadData)
+DECLARE_FUNC_CUDA_DRVAPI(cuModuleLoadDataEx)
+DECLARE_FUNC_CUDA_DRVAPI(cuModuleLoadFatBinary)
+DECLARE_FUNC_CUDA_DRVAPI(cuModuleUnload)
+DECLARE_FUNC_CUDA_DRVAPI(cuModuleGetFunction)
+DECLARE_FUNC_CUDA_DRVAPI(cuModuleGetGlobal)
+DECLARE_FUNC_CUDA_DRVAPI(cuModuleGetTexRef)
+DECLARE_FUNC_CUDA_DRVAPI(cuModuleGetSurfRef)
+DECLARE_FUNC_CUDA_DRVAPI(cuLinkCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuLinkAddData)
+DECLARE_FUNC_CUDA_DRVAPI(cuLinkAddFile)
+DECLARE_FUNC_CUDA_DRVAPI(cuLinkComplete)
+DECLARE_FUNC_CUDA_DRVAPI(cuLinkDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemGetInfo)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemAlloc)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemAllocPitch)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemFree)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemGetAddressRange)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemAllocHost)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemFreeHost)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemHostAlloc)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemHostGetDevicePointer)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemHostGetFlags)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemAllocManaged)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetByPCIBusId)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetPCIBusId)
+DECLARE_FUNC_CUDA_DRVAPI(cuIpcGetEventHandle)
+DECLARE_FUNC_CUDA_DRVAPI(cuIpcOpenEventHandle)
+DECLARE_FUNC_CUDA_DRVAPI(cuIpcGetMemHandle)
+DECLARE_FUNC_CUDA_DRVAPI(cuIpcOpenMemHandle)
+DECLARE_FUNC_CUDA_DRVAPI(cuIpcCloseMemHandle)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemHostRegister)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemHostUnregister)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpy)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyPeer)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyHtoD)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyDtoH)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyDtoD)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyDtoA)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyAtoD)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyHtoA)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyAtoH)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyAtoA)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpy2D)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpy2DUnaligned)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpy3D)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpy3DPeer)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyPeerAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyHtoDAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyDtoHAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyDtoDAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyHtoAAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpyAtoHAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpy2DAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpy3DAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemcpy3DPeerAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD8)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD16)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD32)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD2D8)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD2D16)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD2D32)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD8Async)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD16Async)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD32Async)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD2D8Async)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD2D16Async)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemsetD2D32Async)
+DECLARE_FUNC_CUDA_DRVAPI(cuArrayCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuArrayGetDescriptor)
+DECLARE_FUNC_CUDA_DRVAPI(cuArrayGetSparseProperties)
+DECLARE_FUNC_CUDA_DRVAPI(cuMipmappedArrayGetSparseProperties)
+DECLARE_FUNC_CUDA_DRVAPI(cuArrayDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuArray3DCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuArray3DGetDescriptor)
+DECLARE_FUNC_CUDA_DRVAPI(cuMipmappedArrayCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuMipmappedArrayGetLevel)
+DECLARE_FUNC_CUDA_DRVAPI(cuMipmappedArrayDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemAddressReserve)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemAddressFree)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemRelease)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemMap)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemMapArrayAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemUnmap)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemSetAccess)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemGetAccess)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemExportToShareableHandle)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemImportFromShareableHandle)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemGetAllocationGranularity)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemGetAllocationPropertiesFromHandle)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemRetainAllocationHandle)
+DECLARE_FUNC_CUDA_DRVAPI(cuPointerGetAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemPrefetchAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemAdvise)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemRangeGetAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuMemRangeGetAttributes)
+DECLARE_FUNC_CUDA_DRVAPI(cuPointerSetAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuPointerGetAttributes)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamCreateWithPriority)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamGetPriority)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamGetFlags)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamGetCtx)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamWaitEvent)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamAddCallback)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamBeginCapture)
+DECLARE_FUNC_CUDA_DRVAPI(cuThreadExchangeStreamCaptureMode)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamEndCapture)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamIsCapturing)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamGetCaptureInfo)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamAttachMemAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamQuery)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamSynchronize)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamCopyAttributes)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamGetAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamSetAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuEventCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuEventRecord)
+DECLARE_FUNC_CUDA_DRVAPI(cuEventRecordWithFlags)
+DECLARE_FUNC_CUDA_DRVAPI(cuEventQuery)
+DECLARE_FUNC_CUDA_DRVAPI(cuEventSynchronize)
+DECLARE_FUNC_CUDA_DRVAPI(cuEventDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuEventElapsedTime)
+DECLARE_FUNC_CUDA_DRVAPI(cuImportExternalMemory)
+DECLARE_FUNC_CUDA_DRVAPI(cuExternalMemoryGetMappedBuffer)
+DECLARE_FUNC_CUDA_DRVAPI(cuExternalMemoryGetMappedMipmappedArray)
+DECLARE_FUNC_CUDA_DRVAPI(cuDestroyExternalMemory)
+DECLARE_FUNC_CUDA_DRVAPI(cuImportExternalSemaphore)
+DECLARE_FUNC_CUDA_DRVAPI(cuSignalExternalSemaphoresAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuWaitExternalSemaphoresAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuDestroyExternalSemaphore)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamWaitValue32)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamWaitValue64)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamWriteValue32)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamWriteValue64)
+DECLARE_FUNC_CUDA_DRVAPI(cuStreamBatchMemOp)
+DECLARE_FUNC_CUDA_DRVAPI(cuFuncGetAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuFuncSetAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuFuncSetCacheConfig)
+DECLARE_FUNC_CUDA_DRVAPI(cuFuncSetSharedMemConfig)
+DECLARE_FUNC_CUDA_DRVAPI(cuLaunchKernel)
+DECLARE_FUNC_CUDA_DRVAPI(cuLaunchCooperativeKernel)
+DECLARE_FUNC_CUDA_DRVAPI(cuLaunchCooperativeKernelMultiDevice)
+DECLARE_FUNC_CUDA_DRVAPI(cuLaunchHostFunc)
+DECLARE_FUNC_CUDA_DRVAPI(cuFuncSetBlockShape)
+DECLARE_FUNC_CUDA_DRVAPI(cuFuncSetSharedSize)
+DECLARE_FUNC_CUDA_DRVAPI(cuParamSetSize)
+DECLARE_FUNC_CUDA_DRVAPI(cuParamSeti)
+DECLARE_FUNC_CUDA_DRVAPI(cuParamSetf)
+DECLARE_FUNC_CUDA_DRVAPI(cuParamSetv)
+DECLARE_FUNC_CUDA_DRVAPI(cuLaunch)
+DECLARE_FUNC_CUDA_DRVAPI(cuLaunchGrid)
+DECLARE_FUNC_CUDA_DRVAPI(cuLaunchGridAsync)
+DECLARE_FUNC_CUDA_DRVAPI(cuParamSetTexRef)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphAddKernelNode)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphKernelNodeGetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphKernelNodeSetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphAddMemcpyNode)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphMemcpyNodeGetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphMemcpyNodeSetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphAddMemsetNode)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphMemsetNodeGetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphMemsetNodeSetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphAddHostNode)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphHostNodeGetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphHostNodeSetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphAddChildGraphNode)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphChildGraphNodeGetGraph)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphAddEmptyNode)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphAddEventRecordNode)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphEventRecordNodeGetEvent)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphEventRecordNodeSetEvent)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphAddEventWaitNode)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphEventWaitNodeGetEvent)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphEventWaitNodeSetEvent)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphClone)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphNodeFindInClone)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphNodeGetType)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphGetNodes)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphGetRootNodes)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphGetEdges)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphNodeGetDependencies)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphNodeGetDependentNodes)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphAddDependencies)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphRemoveDependencies)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphDestroyNode)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphInstantiate)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphExecKernelNodeSetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphExecMemcpyNodeSetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphExecMemsetNodeSetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphExecHostNodeSetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphExecChildGraphNodeSetParams)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphExecEventRecordNodeSetEvent)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphExecEventWaitNodeSetEvent)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphUpload)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphLaunch)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphExecDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphExecUpdate)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphKernelNodeCopyAttributes)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphKernelNodeGetAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphKernelNodeSetAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuOccupancyMaxActiveBlocksPerMultiprocessor)
+DECLARE_FUNC_CUDA_DRVAPI(cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags)
+DECLARE_FUNC_CUDA_DRVAPI(cuOccupancyMaxPotentialBlockSize)
+DECLARE_FUNC_CUDA_DRVAPI(cuOccupancyMaxPotentialBlockSizeWithFlags)
+DECLARE_FUNC_CUDA_DRVAPI(cuOccupancyAvailableDynamicSMemPerBlock)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetArray)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetMipmappedArray)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetAddress)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetAddress2D)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetFormat)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetAddressMode)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetFilterMode)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetMipmapFilterMode)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetMipmapLevelBias)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetMipmapLevelClamp)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetMaxAnisotropy)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetBorderColor)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefSetFlags)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetAddress)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetArray)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetMipmappedArray)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetAddressMode)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetFilterMode)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetFormat)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetMipmapFilterMode)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetMipmapLevelBias)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetMipmapLevelClamp)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetMaxAnisotropy)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetBorderColor)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefGetFlags)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexRefDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuSurfRefSetArray)
+DECLARE_FUNC_CUDA_DRVAPI(cuSurfRefGetArray)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexObjectCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexObjectDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexObjectGetResourceDesc)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexObjectGetTextureDesc)
+DECLARE_FUNC_CUDA_DRVAPI(cuTexObjectGetResourceViewDesc)
+DECLARE_FUNC_CUDA_DRVAPI(cuSurfObjectCreate)
+DECLARE_FUNC_CUDA_DRVAPI(cuSurfObjectDestroy)
+DECLARE_FUNC_CUDA_DRVAPI(cuSurfObjectGetResourceDesc)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceCanAccessPeer)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxEnablePeerAccess)
+DECLARE_FUNC_CUDA_DRVAPI(cuCtxDisablePeerAccess)
+DECLARE_FUNC_CUDA_DRVAPI(cuDeviceGetP2PAttribute)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphicsUnregisterResource)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphicsSubResourceGetMappedArray)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphicsResourceGetMappedMipmappedArray)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphicsResourceGetMappedPointer)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphicsResourceSetMapFlags)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphicsMapResources)
+DECLARE_FUNC_CUDA_DRVAPI(cuGraphicsUnmapResources)
+DECLARE_FUNC_CUDA_DRVAPI(cuGetExportTable)
+DECLARE_FUNC_CUDA_DRVAPI(cuFuncGetModule)
+
+/********************************************************************************************************/
+
+#ifndef _CUDA_DRVAPI_FUNCS_DEFINITION_SECTION_
+#undef DECLARE_FUNC_CUDA_DRVAPI
+
+#ifdef _WIN32
+#undef cuD3D11GetDevice
+#define cuD3D11GetDevice pcuD3D11GetDevice
+#undef cuD3D11GetDevices
+#define cuD3D11GetDevices pcuD3D11GetDevices
+#undef cuGraphicsD3D11RegisterResource
+#define cuGraphicsD3D11RegisterResource pcuGraphicsD3D11RegisterResource
+#undef cuD3D11CtxCreate
+#define cuD3D11CtxCreate pcuD3D11CtxCreate
+#undef cuD3D11CtxCreateOnDevice
+#define cuD3D11CtxCreateOnDevice pcuD3D11CtxCreateOnDevice
+#undef cuD3D11GetDirect3DDevice
+#define cuD3D11GetDirect3DDevice pcuD3D11GetDirect3DDevice
+#endif
+
+#undef cuGetErrorString
+#define cuGetErrorString pcuGetErrorString
+#undef cuGetErrorName
+#define cuGetErrorName pcuGetErrorName
+#undef cuInit
+#define cuInit pcuInit
+#undef cuDriverGetVersion
+#define cuDriverGetVersion pcuDriverGetVersion
+#undef cuDeviceGet
+#define cuDeviceGet pcuDeviceGet
+#undef cuDeviceGetCount
+#define cuDeviceGetCount pcuDeviceGetCount
+#undef cuDeviceGetName
+#define cuDeviceGetName pcuDeviceGetName
+#undef cuDeviceGetUuid
+#define cuDeviceGetUuid pcuDeviceGetUuid
+#undef cuDeviceGetLuid
+#define cuDeviceGetLuid pcuDeviceGetLuid
+#undef cuDeviceTotalMem
+#define cuDeviceTotalMem pcuDeviceTotalMem
+#undef cuDeviceGetTexture1DLinearMaxWidth
+#define cuDeviceGetTexture1DLinearMaxWidth pcuDeviceGetTexture1DLinearMaxWidth
+#undef cuDeviceGetAttribute
+#define cuDeviceGetAttribute pcuDeviceGetAttribute
+#undef cuDeviceGetNvSciSyncAttributes
+#define cuDeviceGetNvSciSyncAttributes pcuDeviceGetNvSciSyncAttributes
+#undef cuDeviceGetProperties
+#define cuDeviceGetProperties pcuDeviceGetProperties
+#undef cuDeviceComputeCapability
+#define cuDeviceComputeCapability pcuDeviceComputeCapability
+#undef cuDevicePrimaryCtxRetain
+#define cuDevicePrimaryCtxRetain pcuDevicePrimaryCtxRetain
+#undef cuDevicePrimaryCtxRelease
+#define cuDevicePrimaryCtxRelease pcuDevicePrimaryCtxRelease
+#undef cuDevicePrimaryCtxSetFlags
+#define cuDevicePrimaryCtxSetFlags pcuDevicePrimaryCtxSetFlags
+#undef cuDevicePrimaryCtxGetState
+#define cuDevicePrimaryCtxGetState pcuDevicePrimaryCtxGetState
+#undef cuDevicePrimaryCtxReset
+#define cuDevicePrimaryCtxReset pcuDevicePrimaryCtxReset
+#undef cuCtxCreate
+#define cuCtxCreate pcuCtxCreate
+#undef cuCtxDestroy
+#define cuCtxDestroy pcuCtxDestroy
+#undef cuCtxPushCurrent
+#define cuCtxPushCurrent pcuCtxPushCurrent
+#undef cuCtxPopCurrent
+#define cuCtxPopCurrent pcuCtxPopCurrent
+#undef cuCtxSetCurrent
+#define cuCtxSetCurrent pcuCtxSetCurrent
+#undef cuCtxGetCurrent
+#define cuCtxGetCurrent pcuCtxGetCurrent
+#undef cuCtxGetDevice
+#define cuCtxGetDevice pcuCtxGetDevice
+#undef cuCtxGetFlags
+#define cuCtxGetFlags pcuCtxGetFlags
+#undef cuCtxSynchronize
+#define cuCtxSynchronize pcuCtxSynchronize
+#undef cuCtxSetLimit
+#define cuCtxSetLimit pcuCtxSetLimit
+#undef cuCtxGetLimit
+#define cuCtxGetLimit pcuCtxGetLimit
+#undef cuCtxGetCacheConfig
+#define cuCtxGetCacheConfig pcuCtxGetCacheConfig
+#undef cuCtxSetCacheConfig
+#define cuCtxSetCacheConfig pcuCtxSetCacheConfig
+#undef cuCtxGetSharedMemConfig
+#define cuCtxGetSharedMemConfig pcuCtxGetSharedMemConfig
+#undef cuCtxSetSharedMemConfig
+#define cuCtxSetSharedMemConfig pcuCtxSetSharedMemConfig
+#undef cuCtxGetApiVersion
+#define cuCtxGetApiVersion pcuCtxGetApiVersion
+#undef cuCtxGetStreamPriorityRange
+#define cuCtxGetStreamPriorityRange pcuCtxGetStreamPriorityRange
+#undef cuCtxResetPersistingL2Cache
+#define cuCtxResetPersistingL2Cache pcuCtxResetPersistingL2Cache
+#undef cuCtxAttach
+#define cuCtxAttach pcuCtxAttach
+#undef cuCtxDetach
+#define cuCtxDetach pcuCtxDetach
+#undef cuModuleLoad
+#define cuModuleLoad pcuModuleLoad
+#undef cuModuleLoadData
+#define cuModuleLoadData pcuModuleLoadData
+#undef cuModuleLoadDataEx
+#define cuModuleLoadDataEx pcuModuleLoadDataEx
+#undef cuModuleLoadFatBinary
+#define cuModuleLoadFatBinary pcuModuleLoadFatBinary
+#undef cuModuleUnload
+#define cuModuleUnload pcuModuleUnload
+#undef cuModuleGetFunction
+#define cuModuleGetFunction pcuModuleGetFunction
+#undef cuModuleGetGlobal
+#define cuModuleGetGlobal pcuModuleGetGlobal
+#undef cuModuleGetTexRef
+#define cuModuleGetTexRef pcuModuleGetTexRef
+#undef cuModuleGetSurfRef
+#define cuModuleGetSurfRef pcuModuleGetSurfRef
+#undef cuLinkCreate
+#define cuLinkCreate pcuLinkCreate
+#undef cuLinkAddData
+#define cuLinkAddData pcuLinkAddData
+#undef cuLinkAddFile
+#define cuLinkAddFile pcuLinkAddFile
+#undef cuLinkComplete
+#define cuLinkComplete pcuLinkComplete
+#undef cuLinkDestroy
+#define cuLinkDestroy pcuLinkDestroy
+#undef cuMemGetInfo
+#define cuMemGetInfo pcuMemGetInfo
+#undef cuMemAlloc
+#define cuMemAlloc pcuMemAlloc
+#undef cuMemAllocPitch
+#define cuMemAllocPitch pcuMemAllocPitch
+#undef cuMemFree
+#define cuMemFree pcuMemFree
+#undef cuMemGetAddressRange
+#define cuMemGetAddressRange pcuMemGetAddressRange
+#undef cuMemAllocHost
+#define cuMemAllocHost pcuMemAllocHost
+#undef cuMemFreeHost
+#define cuMemFreeHost pcuMemFreeHost
+#undef cuMemHostAlloc
+#define cuMemHostAlloc pcuMemHostAlloc
+#undef cuMemHostGetDevicePointer
+#define cuMemHostGetDevicePointer pcuMemHostGetDevicePointer
+#undef cuMemHostGetFlags
+#define cuMemHostGetFlags pcuMemHostGetFlags
+#undef cuMemAllocManaged
+#define cuMemAllocManaged pcuMemAllocManaged
+#undef cuDeviceGetByPCIBusId
+#define cuDeviceGetByPCIBusId pcuDeviceGetByPCIBusId
+#undef cuDeviceGetPCIBusId
+#define cuDeviceGetPCIBusId pcuDeviceGetPCIBusId
+#undef cuIpcGetEventHandle
+#define cuIpcGetEventHandle pcuIpcGetEventHandle
+#undef cuIpcOpenEventHandle
+#define cuIpcOpenEventHandle pcuIpcOpenEventHandle
+#undef cuIpcGetMemHandle
+#define cuIpcGetMemHandle pcuIpcGetMemHandle
+#undef cuIpcOpenMemHandle
+#define cuIpcOpenMemHandle pcuIpcOpenMemHandle
+#undef cuIpcCloseMemHandle
+#define cuIpcCloseMemHandle pcuIpcCloseMemHandle
+#undef cuMemHostRegister
+#define cuMemHostRegister pcuMemHostRegister
+#undef cuMemHostUnregister
+#define cuMemHostUnregister pcuMemHostUnregister
+#undef cuMemcpy
+#define cuMemcpy pcuMemcpy
+#undef cuMemcpyPeer
+#define cuMemcpyPeer pcuMemcpyPeer
+#undef cuMemcpyHtoD
+#define cuMemcpyHtoD pcuMemcpyHtoD
+#undef cuMemcpyDtoH
+#define cuMemcpyDtoH pcuMemcpyDtoH
+#undef cuMemcpyDtoD
+#define cuMemcpyDtoD pcuMemcpyDtoD
+#undef cuMemcpyDtoA
+#define cuMemcpyDtoA pcuMemcpyDtoA
+#undef cuMemcpyAtoD
+#define cuMemcpyAtoD pcuMemcpyAtoD
+#undef cuMemcpyHtoA
+#define cuMemcpyHtoA pcuMemcpyHtoA
+#undef cuMemcpyAtoH
+#define cuMemcpyAtoH pcuMemcpyAtoH
+#undef cuMemcpyAtoA
+#define cuMemcpyAtoA pcuMemcpyAtoA
+#undef cuMemcpy2D
+#define cuMemcpy2D pcuMemcpy2D
+#undef cuMemcpy2DUnaligned
+#define cuMemcpy2DUnaligned pcuMemcpy2DUnaligned
+#undef cuMemcpy3D
+#define cuMemcpy3D pcuMemcpy3D
+#undef cuMemcpy3DPeer
+#define cuMemcpy3DPeer pcuMemcpy3DPeer
+#undef cuMemcpyAsync
+#define cuMemcpyAsync pcuMemcpyAsync
+#undef cuMemcpyPeerAsync
+#define cuMemcpyPeerAsync pcuMemcpyPeerAsync
+#undef cuMemcpyHtoDAsync
+#define cuMemcpyHtoDAsync pcuMemcpyHtoDAsync
+#undef cuMemcpyDtoHAsync
+#define cuMemcpyDtoHAsync pcuMemcpyDtoHAsync
+#undef cuMemcpyDtoDAsync
+#define cuMemcpyDtoDAsync pcuMemcpyDtoDAsync
+#undef cuMemcpyHtoAAsync
+#define cuMemcpyHtoAAsync pcuMemcpyHtoAAsync
+#undef cuMemcpyAtoHAsync
+#define cuMemcpyAtoHAsync pcuMemcpyAtoHAsync
+#undef cuMemcpy2DAsync
+#define cuMemcpy2DAsync pcuMemcpy2DAsync
+#undef cuMemcpy3DAsync
+#define cuMemcpy3DAsync pcuMemcpy3DAsync
+#undef cuMemcpy3DPeerAsync
+#define cuMemcpy3DPeerAsync pcuMemcpy3DPeerAsync
+#undef cuMemsetD8
+#define cuMemsetD8 pcuMemsetD8
+#undef cuMemsetD16
+#define cuMemsetD16 pcuMemsetD16
+#undef cuMemsetD32
+#define cuMemsetD32 pcuMemsetD32
+#undef cuMemsetD2D8
+#define cuMemsetD2D8 pcuMemsetD2D8
+#undef cuMemsetD2D16
+#define cuMemsetD2D16 pcuMemsetD2D16
+#undef cuMemsetD2D32
+#define cuMemsetD2D32 pcuMemsetD2D32
+#undef cuMemsetD8Async
+#define cuMemsetD8Async pcuMemsetD8Async
+#undef cuMemsetD16Async
+#define cuMemsetD16Async pcuMemsetD16Async
+#undef cuMemsetD32Async
+#define cuMemsetD32Async pcuMemsetD32Async
+#undef cuMemsetD2D8Async
+#define cuMemsetD2D8Async pcuMemsetD2D8Async
+#undef cuMemsetD2D16Async
+#define cuMemsetD2D16Async pcuMemsetD2D16Async
+#undef cuMemsetD2D32Async
+#define cuMemsetD2D32Async pcuMemsetD2D32Async
+#undef cuArrayCreate
+#define cuArrayCreate pcuArrayCreate
+#undef cuArrayGetDescriptor
+#define cuArrayGetDescriptor pcuArrayGetDescriptor
+#undef cuArrayGetSparseProperties
+#define cuArrayGetSparseProperties pcuArrayGetSparseProperties
+#undef cuMipmappedArrayGetSparseProperties
+#define cuMipmappedArrayGetSparseProperties pcuMipmappedArrayGetSparseProperties
+#undef cuArrayDestroy
+#define cuArrayDestroy pcuArrayDestroy
+#undef cuArray3DCreate
+#define cuArray3DCreate pcuArray3DCreate
+#undef cuArray3DGetDescriptor
+#define cuArray3DGetDescriptor pcuArray3DGetDescriptor
+#undef cuMipmappedArrayCreate
+#define cuMipmappedArrayCreate pcuMipmappedArrayCreate
+#undef cuMipmappedArrayGetLevel
+#define cuMipmappedArrayGetLevel pcuMipmappedArrayGetLevel
+#undef cuMipmappedArrayDestroy
+#define cuMipmappedArrayDestroy pcuMipmappedArrayDestroy
+#undef cuMemAddressReserve
+#define cuMemAddressReserve pcuMemAddressReserve
+#undef cuMemAddressFree
+#define cuMemAddressFree pcuMemAddressFree
+#undef cuMemCreate
+#define cuMemCreate pcuMemCreate
+#undef cuMemRelease
+#define cuMemRelease pcuMemRelease
+#undef cuMemMap
+#define cuMemMap pcuMemMap
+#undef cuMemMapArrayAsync
+#define cuMemMapArrayAsync pcuMemMapArrayAsync
+#undef cuMemUnmap
+#define cuMemUnmap pcuMemUnmap
+#undef cuMemSetAccess
+#define cuMemSetAccess pcuMemSetAccess
+#undef cuMemGetAccess
+#define cuMemGetAccess pcuMemGetAccess
+#undef cuMemExportToShareableHandle
+#define cuMemExportToShareableHandle pcuMemExportToShareableHandle
+#undef cuMemImportFromShareableHandle
+#define cuMemImportFromShareableHandle pcuMemImportFromShareableHandle
+#undef cuMemGetAllocationGranularity
+#define cuMemGetAllocationGranularity pcuMemGetAllocationGranularity
+#undef cuMemGetAllocationPropertiesFromHandle
+#define cuMemGetAllocationPropertiesFromHandle pcuMemGetAllocationPropertiesFromHandle
+#undef cuMemRetainAllocationHandle
+#define cuMemRetainAllocationHandle pcuMemRetainAllocationHandle
+#undef cuPointerGetAttribute
+#define cuPointerGetAttribute pcuPointerGetAttribute
+#undef cuMemPrefetchAsync
+#define cuMemPrefetchAsync pcuMemPrefetchAsync
+#undef cuMemAdvise
+#define cuMemAdvise pcuMemAdvise
+#undef cuMemRangeGetAttribute
+#define cuMemRangeGetAttribute pcuMemRangeGetAttribute
+#undef cuMemRangeGetAttributes
+#define cuMemRangeGetAttributes pcuMemRangeGetAttributes
+#undef cuPointerSetAttribute
+#define cuPointerSetAttribute pcuPointerSetAttribute
+#undef cuPointerGetAttributes
+#define cuPointerGetAttributes pcuPointerGetAttributes
+#undef cuStreamCreate
+#define cuStreamCreate pcuStreamCreate
+#undef cuStreamCreateWithPriority
+#define cuStreamCreateWithPriority pcuStreamCreateWithPriority
+#undef cuStreamGetPriority
+#define cuStreamGetPriority pcuStreamGetPriority
+#undef cuStreamGetFlags
+#define cuStreamGetFlags pcuStreamGetFlags
+#undef cuStreamGetCtx
+#define cuStreamGetCtx pcuStreamGetCtx
+#undef cuStreamWaitEvent
+#define cuStreamWaitEvent pcuStreamWaitEvent
+#undef cuStreamAddCallback
+#define cuStreamAddCallback pcuStreamAddCallback
+#undef cuStreamBeginCapture
+#define cuStreamBeginCapture pcuStreamBeginCapture
+#undef cuThreadExchangeStreamCaptureMode
+#define cuThreadExchangeStreamCaptureMode pcuThreadExchangeStreamCaptureMode
+#undef cuStreamEndCapture
+#define cuStreamEndCapture pcuStreamEndCapture
+#undef cuStreamIsCapturing
+#define cuStreamIsCapturing pcuStreamIsCapturing
+#undef cuStreamGetCaptureInfo
+#define cuStreamGetCaptureInfo pcuStreamGetCaptureInfo
+#undef cuStreamAttachMemAsync
+#define cuStreamAttachMemAsync pcuStreamAttachMemAsync
+#undef cuStreamQuery
+#define cuStreamQuery pcuStreamQuery
+#undef cuStreamSynchronize
+#define cuStreamSynchronize pcuStreamSynchronize
+#undef cuStreamDestroy
+#define cuStreamDestroy pcuStreamDestroy
+#undef cuStreamCopyAttributes
+#define cuStreamCopyAttributes pcuStreamCopyAttributes
+#undef cuStreamGetAttribute
+#define cuStreamGetAttribute pcuStreamGetAttribute
+#undef cuStreamSetAttribute
+#define cuStreamSetAttribute pcuStreamSetAttribute
+#undef cuEventCreate
+#define cuEventCreate pcuEventCreate
+#undef cuEventRecord
+#define cuEventRecord pcuEventRecord
+#undef cuEventRecordWithFlags
+#define cuEventRecordWithFlags pcuEventRecordWithFlags
+#undef cuEventQuery
+#define cuEventQuery pcuEventQuery
+#undef cuEventSynchronize
+#define cuEventSynchronize pcuEventSynchronize
+#undef cuEventDestroy
+#define cuEventDestroy pcuEventDestroy
+#undef cuEventElapsedTime
+#define cuEventElapsedTime pcuEventElapsedTime
+#undef cuImportExternalMemory
+#define cuImportExternalMemory pcuImportExternalMemory
+#undef cuExternalMemoryGetMappedBuffer
+#define cuExternalMemoryGetMappedBuffer pcuExternalMemoryGetMappedBuffer
+#undef cuExternalMemoryGetMappedMipmappedArray
+#define cuExternalMemoryGetMappedMipmappedArray pcuExternalMemoryGetMappedMipmappedArray
+#undef cuDestroyExternalMemory
+#define cuDestroyExternalMemory pcuDestroyExternalMemory
+#undef cuImportExternalSemaphore
+#define cuImportExternalSemaphore pcuImportExternalSemaphore
+#undef cuSignalExternalSemaphoresAsync
+#define cuSignalExternalSemaphoresAsync pcuSignalExternalSemaphoresAsync
+#undef cuWaitExternalSemaphoresAsync
+#define cuWaitExternalSemaphoresAsync pcuWaitExternalSemaphoresAsync
+#undef cuDestroyExternalSemaphore
+#define cuDestroyExternalSemaphore pcuDestroyExternalSemaphore
+#undef cuStreamWaitValue32
+#define cuStreamWaitValue32 pcuStreamWaitValue32
+#undef cuStreamWaitValue64
+#define cuStreamWaitValue64 pcuStreamWaitValue64
+#undef cuStreamWriteValue32
+#define cuStreamWriteValue32 pcuStreamWriteValue32
+#undef cuStreamWriteValue64
+#define cuStreamWriteValue64 pcuStreamWriteValue64
+#undef cuStreamBatchMemOp
+#define cuStreamBatchMemOp pcuStreamBatchMemOp
+#undef cuFuncGetAttribute
+#define cuFuncGetAttribute pcuFuncGetAttribute
+#undef cuFuncSetAttribute
+#define cuFuncSetAttribute pcuFuncSetAttribute
+#undef cuFuncSetCacheConfig
+#define cuFuncSetCacheConfig pcuFuncSetCacheConfig
+#undef cuFuncSetSharedMemConfig
+#define cuFuncSetSharedMemConfig pcuFuncSetSharedMemConfig
+#undef cuLaunchKernel
+#define cuLaunchKernel pcuLaunchKernel
+#undef cuLaunchCooperativeKernel
+#define cuLaunchCooperativeKernel pcuLaunchCooperativeKernel
+#undef cuLaunchCooperativeKernelMultiDevice
+#define cuLaunchCooperativeKernelMultiDevice pcuLaunchCooperativeKernelMultiDevice
+#undef cuLaunchHostFunc
+#define cuLaunchHostFunc pcuLaunchHostFunc
+#undef cuFuncSetBlockShape
+#define cuFuncSetBlockShape pcuFuncSetBlockShape
+#undef cuFuncSetSharedSize
+#define cuFuncSetSharedSize pcuFuncSetSharedSize
+#undef cuParamSetSize
+#define cuParamSetSize pcuParamSetSize
+#undef cuParamSeti
+#define cuParamSeti pcuParamSeti
+#undef cuParamSetf
+#define cuParamSetf pcuParamSetf
+#undef cuParamSetv
+#define cuParamSetv pcuParamSetv
+#undef cuLaunch
+#define cuLaunch pcuLaunch
+#undef cuLaunchGrid
+#define cuLaunchGrid pcuLaunchGrid
+#undef cuLaunchGridAsync
+#define cuLaunchGridAsync pcuLaunchGridAsync
+#undef cuParamSetTexRef
+#define cuParamSetTexRef pcuParamSetTexRef
+#undef cuGraphCreate
+#define cuGraphCreate pcuGraphCreate
+#undef cuGraphAddKernelNode
+#define cuGraphAddKernelNode pcuGraphAddKernelNode
+#undef cuGraphKernelNodeGetParams
+#define cuGraphKernelNodeGetParams pcuGraphKernelNodeGetParams
+#undef cuGraphKernelNodeSetParams
+#define cuGraphKernelNodeSetParams pcuGraphKernelNodeSetParams
+#undef cuGraphAddMemcpyNode
+#define cuGraphAddMemcpyNode pcuGraphAddMemcpyNode
+#undef cuGraphMemcpyNodeGetParams
+#define cuGraphMemcpyNodeGetParams pcuGraphMemcpyNodeGetParams
+#undef cuGraphMemcpyNodeSetParams
+#define cuGraphMemcpyNodeSetParams pcuGraphMemcpyNodeSetParams
+#undef cuGraphAddMemsetNode
+#define cuGraphAddMemsetNode pcuGraphAddMemsetNode
+#undef cuGraphMemsetNodeGetParams
+#define cuGraphMemsetNodeGetParams pcuGraphMemsetNodeGetParams
+#undef cuGraphMemsetNodeSetParams
+#define cuGraphMemsetNodeSetParams pcuGraphMemsetNodeSetParams
+#undef cuGraphAddHostNode
+#define cuGraphAddHostNode pcuGraphAddHostNode
+#undef cuGraphHostNodeGetParams
+#define cuGraphHostNodeGetParams pcuGraphHostNodeGetParams
+#undef cuGraphHostNodeSetParams
+#define cuGraphHostNodeSetParams pcuGraphHostNodeSetParams
+#undef cuGraphAddChildGraphNode
+#define cuGraphAddChildGraphNode pcuGraphAddChildGraphNode
+#undef cuGraphChildGraphNodeGetGraph
+#define cuGraphChildGraphNodeGetGraph pcuGraphChildGraphNodeGetGraph
+#undef cuGraphAddEmptyNode
+#define cuGraphAddEmptyNode pcuGraphAddEmptyNode
+#undef cuGraphAddEventRecordNode
+#define cuGraphAddEventRecordNode pcuGraphAddEventRecordNode
+#undef cuGraphEventRecordNodeGetEvent
+#define cuGraphEventRecordNodeGetEvent pcuGraphEventRecordNodeGetEvent
+#undef cuGraphEventRecordNodeSetEvent
+#define cuGraphEventRecordNodeSetEvent pcuGraphEventRecordNodeSetEvent
+#undef cuGraphAddEventWaitNode
+#define cuGraphAddEventWaitNode pcuGraphAddEventWaitNode
+#undef cuGraphEventWaitNodeGetEvent
+#define cuGraphEventWaitNodeGetEvent pcuGraphEventWaitNodeGetEvent
+#undef cuGraphEventWaitNodeSetEvent
+#define cuGraphEventWaitNodeSetEvent pcuGraphEventWaitNodeSetEvent
+#undef cuGraphClone
+#define cuGraphClone pcuGraphClone
+#undef cuGraphNodeFindInClone
+#define cuGraphNodeFindInClone pcuGraphNodeFindInClone
+#undef cuGraphNodeGetType
+#define cuGraphNodeGetType pcuGraphNodeGetType
+#undef cuGraphGetNodes
+#define cuGraphGetNodes pcuGraphGetNodes
+#undef cuGraphGetRootNodes
+#define cuGraphGetRootNodes pcuGraphGetRootNodes
+#undef cuGraphGetEdges
+#define cuGraphGetEdges pcuGraphGetEdges
+#undef cuGraphNodeGetDependencies
+#define cuGraphNodeGetDependencies pcuGraphNodeGetDependencies
+#undef cuGraphNodeGetDependentNodes
+#define cuGraphNodeGetDependentNodes pcuGraphNodeGetDependentNodes
+#undef cuGraphAddDependencies
+#define cuGraphAddDependencies pcuGraphAddDependencies
+#undef cuGraphRemoveDependencies
+#define cuGraphRemoveDependencies pcuGraphRemoveDependencies
+#undef cuGraphDestroyNode
+#define cuGraphDestroyNode pcuGraphDestroyNode
+#undef cuGraphInstantiate
+#define cuGraphInstantiate pcuGraphInstantiate
+#undef cuGraphExecKernelNodeSetParams
+#define cuGraphExecKernelNodeSetParams pcuGraphExecKernelNodeSetParams
+#undef cuGraphExecMemcpyNodeSetParams
+#define cuGraphExecMemcpyNodeSetParams pcuGraphExecMemcpyNodeSetParams
+#undef cuGraphExecMemsetNodeSetParams
+#define cuGraphExecMemsetNodeSetParams pcuGraphExecMemsetNodeSetParams
+#undef cuGraphExecHostNodeSetParams
+#define cuGraphExecHostNodeSetParams pcuGraphExecHostNodeSetParams
+#undef cuGraphExecChildGraphNodeSetParams
+#define cuGraphExecChildGraphNodeSetParams pcuGraphExecChildGraphNodeSetParams
+#undef cuGraphExecEventRecordNodeSetEvent
+#define cuGraphExecEventRecordNodeSetEvent pcuGraphExecEventRecordNodeSetEvent
+#undef cuGraphExecEventWaitNodeSetEvent
+#define cuGraphExecEventWaitNodeSetEvent pcuGraphExecEventWaitNodeSetEvent
+#undef cuGraphUpload
+#define cuGraphUpload pcuGraphUpload
+#undef cuGraphLaunch
+#define cuGraphLaunch pcuGraphLaunch
+#undef cuGraphExecDestroy
+#define cuGraphExecDestroy pcuGraphExecDestroy
+#undef cuGraphDestroy
+#define cuGraphDestroy pcuGraphDestroy
+#undef cuGraphExecUpdate
+#define cuGraphExecUpdate pcuGraphExecUpdate
+#undef cuGraphKernelNodeCopyAttributes
+#define cuGraphKernelNodeCopyAttributes pcuGraphKernelNodeCopyAttributes
+#undef cuGraphKernelNodeGetAttribute
+#define cuGraphKernelNodeGetAttribute pcuGraphKernelNodeGetAttribute
+#undef cuGraphKernelNodeSetAttribute
+#define cuGraphKernelNodeSetAttribute pcuGraphKernelNodeSetAttribute
+#undef cuOccupancyMaxActiveBlocksPerMultiprocessor
+#define cuOccupancyMaxActiveBlocksPerMultiprocessor pcuOccupancyMaxActiveBlocksPerMultiprocessor
+#undef cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags
+#define cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags pcuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags
+#undef cuOccupancyMaxPotentialBlockSize
+#define cuOccupancyMaxPotentialBlockSize pcuOccupancyMaxPotentialBlockSize
+#undef cuOccupancyMaxPotentialBlockSizeWithFlags
+#define cuOccupancyMaxPotentialBlockSizeWithFlags pcuOccupancyMaxPotentialBlockSizeWithFlags
+#undef cuOccupancyAvailableDynamicSMemPerBlock
+#define cuOccupancyAvailableDynamicSMemPerBlock pcuOccupancyAvailableDynamicSMemPerBlock
+#undef cuTexRefSetArray
+#define cuTexRefSetArray pcuTexRefSetArray
+#undef cuTexRefSetMipmappedArray
+#define cuTexRefSetMipmappedArray pcuTexRefSetMipmappedArray
+#undef cuTexRefSetAddress
+#define cuTexRefSetAddress pcuTexRefSetAddress
+#undef cuTexRefSetAddress2D_v3
+#define cuTexRefSetAddress2D_v3 pcuTexRefSetAddress2D_v3
+#undef cuTexRefSetFormat
+#define cuTexRefSetFormat pcuTexRefSetFormat
+#undef cuTexRefSetAddressMode
+#define cuTexRefSetAddressMode pcuTexRefSetAddressMode
+#undef cuTexRefSetFilterMode
+#define cuTexRefSetFilterMode pcuTexRefSetFilterMode
+#undef cuTexRefSetMipmapFilterMode
+#define cuTexRefSetMipmapFilterMode pcuTexRefSetMipmapFilterMode
+#undef cuTexRefSetMipmapLevelBias
+#define cuTexRefSetMipmapLevelBias pcuTexRefSetMipmapLevelBias
+#undef cuTexRefSetMipmapLevelClamp
+#define cuTexRefSetMipmapLevelClamp pcuTexRefSetMipmapLevelClamp
+#undef cuTexRefSetMaxAnisotropy
+#define cuTexRefSetMaxAnisotropy pcuTexRefSetMaxAnisotropy
+#undef cuTexRefSetBorderColor
+#define cuTexRefSetBorderColor pcuTexRefSetBorderColor
+#undef cuTexRefSetFlags
+#define cuTexRefSetFlags pcuTexRefSetFlags
+#undef cuTexRefGetAddress
+#define cuTexRefGetAddress pcuTexRefGetAddress
+#undef cuTexRefGetArray
+#define cuTexRefGetArray pcuTexRefGetArray
+#undef cuTexRefGetMipmappedArray
+#define cuTexRefGetMipmappedArray pcuTexRefGetMipmappedArray
+#undef cuTexRefGetAddressMode
+#define cuTexRefGetAddressMode pcuTexRefGetAddressMode
+#undef cuTexRefGetFilterMode
+#define cuTexRefGetFilterMode pcuTexRefGetFilterMode
+#undef cuTexRefGetFormat
+#define cuTexRefGetFormat pcuTexRefGetFormat
+#undef cuTexRefGetMipmapFilterMode
+#define cuTexRefGetMipmapFilterMode pcuTexRefGetMipmapFilterMode
+#undef cuTexRefGetMipmapLevelBias
+#define cuTexRefGetMipmapLevelBias pcuTexRefGetMipmapLevelBias
+#undef cuTexRefGetMipmapLevelClamp
+#define cuTexRefGetMipmapLevelClamp pcuTexRefGetMipmapLevelClamp
+#undef cuTexRefGetMaxAnisotropy
+#define cuTexRefGetMaxAnisotropy pcuTexRefGetMaxAnisotropy
+#undef cuTexRefGetBorderColor
+#define cuTexRefGetBorderColor pcuTexRefGetBorderColor
+#undef cuTexRefGetFlags
+#define cuTexRefGetFlags pcuTexRefGetFlags
+#undef cuTexRefCreate
+#define cuTexRefCreate pcuTexRefCreate
+#undef cuTexRefDestroy
+#define cuTexRefDestroy pcuTexRefDestroy
+#undef cuSurfRefSetArray
+#define cuSurfRefSetArray pcuSurfRefSetArray
+#undef cuSurfRefGetArray
+#define cuSurfRefGetArray pcuSurfRefGetArray
+#undef cuTexObjectCreate
+#define cuTexObjectCreate pcuTexObjectCreate
+#undef cuTexObjectDestroy
+#define cuTexObjectDestroy pcuTexObjectDestroy
+#undef cuTexObjectGetResourceDesc
+#define cuTexObjectGetResourceDesc pcuTexObjectGetResourceDesc
+#undef cuTexObjectGetTextureDesc
+#define cuTexObjectGetTextureDesc pcuTexObjectGetTextureDesc
+#undef cuTexObjectGetResourceViewDesc
+#define cuTexObjectGetResourceViewDesc pcuTexObjectGetResourceViewDesc
+#undef cuSurfObjectCreate
+#define cuSurfObjectCreate pcuSurfObjectCreate
+#undef cuSurfObjectDestroy
+#define cuSurfObjectDestroy pcuSurfObjectDestroy
+#undef cuSurfObjectGetResourceDesc
+#define cuSurfObjectGetResourceDesc pcuSurfObjectGetResourceDesc
+#undef cuDeviceCanAccessPeer
+#define cuDeviceCanAccessPeer pcuDeviceCanAccessPeer
+#undef cuCtxEnablePeerAccess
+#define cuCtxEnablePeerAccess pcuCtxEnablePeerAccess
+#undef cuCtxDisablePeerAccess
+#define cuCtxDisablePeerAccess pcuCtxDisablePeerAccess
+#undef cuDeviceGetP2PAttribute
+#define cuDeviceGetP2PAttribute pcuDeviceGetP2PAttribute
+#undef cuGraphicsUnregisterResource
+#define cuGraphicsUnregisterResource pcuGraphicsUnregisterResource
+#undef cuGraphicsSubResourceGetMappedArray
+#define cuGraphicsSubResourceGetMappedArray pcuGraphicsSubResourceGetMappedArray
+#undef cuGraphicsResourceGetMappedMipmappedArray
+#define cuGraphicsResourceGetMappedMipmappedArray pcuGraphicsResourceGetMappedMipmappedArray
+#undef cuGraphicsResourceGetMappedPointer
+#define cuGraphicsResourceGetMappedPointer pcuGraphicsResourceGetMappedPointer
+#undef cuGraphicsResourceSetMapFlags
+#define cuGraphicsResourceSetMapFlags pcuGraphicsResourceSetMapFlags
+#undef cuGraphicsMapResources
+#define cuGraphicsMapResources pcuGraphicsMapResources
+#undef cuGraphicsUnmapResources
+#define cuGraphicsUnmapResources pcuGraphicsUnmapResources
+#undef cuGetExportTable
+#define cuGetExportTable pcuGetExportTable
+#undef cuFuncGetModule
+#define cuFuncGetModule pcuFuncGetModule
+
+#endif
