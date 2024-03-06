@@ -11,7 +11,15 @@
 #include <cuda.h>
 
 #ifdef _WIN32
-#include <cudaD3D11.h>
+  #ifdef __has_include
+    #if __has_include(<cudaD3D11.h>)
+      #include <cudaD3D11.h>
+    #endif
+  #endif
+
+  #ifndef CUDAD3D11_H
+    #pragma message("Warning! <cudaD3D11.h> is not loaded ==> D3D11-related CUDA functions are disabled!")
+  #endif
 #endif
 
 #define FUNC_CUDA_DRVAPI(function) function

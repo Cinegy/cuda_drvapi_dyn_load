@@ -10,7 +10,7 @@
 
 /********************************************************************************************************/
 
-#ifdef _WIN32
+#ifdef CUDAD3D11_H
 DECLARE_FUNC_CUDA_DRVAPI(cuD3D11GetDevice)
 DECLARE_FUNC_CUDA_DRVAPI(cuD3D11GetDevices)
 DECLARE_FUNC_CUDA_DRVAPI(cuGraphicsD3D11RegisterResource)
@@ -327,7 +327,7 @@ DECLARE_FUNC_CUDA_DRVAPI(cuFuncGetModule)
 #ifndef _CUDA_DRVAPI_FUNCS_DEFINITION_SECTION_
 #undef DECLARE_FUNC_CUDA_DRVAPI
 
-#ifdef _WIN32
+#ifdef CUDAD3D11_H
 #undef cuD3D11GetDevice
 #define cuD3D11GetDevice pcuD3D11GetDevice
 #undef cuD3D11GetDevices

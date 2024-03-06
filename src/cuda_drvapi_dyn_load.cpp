@@ -63,7 +63,7 @@ int LoadCudaDrvApiLib()
 
 	if (g_hCudaDrvAPI)
 	{
-#ifdef _WIN32
+#ifdef CUDAD3D11_H
 		LOAD_CUDA_DRVAPI_FUNC(cuD3D11GetDevice)
 		LOAD_CUDA_DRVAPI_FUNC(cuD3D11GetDevices)
 		LOAD_CUDA_DRVAPI_FUNC(cuGraphicsD3D11RegisterResource)
